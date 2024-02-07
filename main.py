@@ -1,7 +1,10 @@
 from alpaca.trading.client import TradingClient
 from alpaca.trading.requests import GetAssetsRequest
+from dotenv import load_dotenv
+import os
 
-trading_client = TradingClient('api-key', 'secret-key')
+load_dotenv()
+trading_client = TradingClient(os.getenv("API_KEY"), os.getenv("SECRET_KEY"))
 
 # Get our account information.
 account = trading_client.get_account()
