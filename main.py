@@ -1,6 +1,6 @@
 from alpaca.trading.client import TradingClient
-from alpaca.trading.requests import GetAssetsRequest
-from alpaca.trading.enums import AssetClass
+from alpaca.trading.requests import GetAssetsRequest, MarketOrderRequest
+from alpaca.trading.enums import AssetClass, OrderSide, TimeInForce
 from dotenv import load_dotenv
 import os
 
@@ -20,6 +20,6 @@ print('${} is available as buying power.'.format(account.buying_power))
 # Search for all US stocks available
 search_params = GetAssetsRequest(asset_class=AssetClass.US_EQUITY)
 assets = trading_client.get_all_assets(search_params)
-print(assets[0].name)
 for asset in assets:
-    print(asset.name)
+    if asset.tradable:
+        print("Symbol: " + asset.symbol + " Name: " + asset.name)
