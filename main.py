@@ -23,3 +23,7 @@ assets = trading_client.get_all_assets(search_params)
 for asset in assets:
     if asset.tradable:
         print("Symbol: " + asset.symbol + " Name: " + asset.name)
+
+# Pick a random stock and buy it
+
+# Pick a random owned stock and sell it
