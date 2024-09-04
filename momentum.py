@@ -20,9 +20,10 @@ ALPACA_CONFIG = {
 # Momentum Strategy 'SwingHigh'
 
 class SwingHigh(Strategy):
+    data = []
+    order_number = 0
+
     def initialize(self):
-        data = []
-        order_number = 0
         self.sleeptime = "10S"
 
     def on_trading_iteration(self):
